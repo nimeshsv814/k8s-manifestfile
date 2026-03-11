@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: photostudio-rs
+  namespace: nimesh-ns
+  labels:
+    app: photo
+spec:
+  replicas: 4
+  # selector:
+  #   matchLabels:
+  #     app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: photostudio-container
+          image: nimeshsv814/photostudio-app:v1.1.0
+          ports:
+            - containerPort: 3000
+  selector:
+    matchLabels:
+      app: web
