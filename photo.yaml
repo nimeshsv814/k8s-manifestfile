@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: photo-pod
+  namespace: nimesh-ns
+  labels:
+    app: photo-studio
+spec:
+  containers:
+    - name: photo-studio-container
+      image: nimeshsv814/photostudio-app:v1.1.0
+      ports:
+        - containerPort: 3000
