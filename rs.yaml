@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ey-cart-rs
+  namespace: nimesh-ns
+  labels:
+    app: cart
+spec: # it defines behaviour of replicaset
+  replicas: 3
+  selector: # it defines how the replicaset finds which pods to manage
+    matchLabels:
+      app: web
+  template: # it contains pod definition
+    metadata:
+      labels:
+        app: web
+    spec:   # it contains container definition
+      containers:
+        - name: ey-cart-container
+          image: muralisocial123/ey-cart:v1.1.0
+          ports:
+            - containerPort: 3000
