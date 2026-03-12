@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: flipkart-rs
+  namespace: nimesh-ns
+  labels:
+    app: flipkart
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: flipkart-container
+          image: muralisocial123/flipkart-app-web:v1.1.0
+          ports:
+            - containerPort: 80
