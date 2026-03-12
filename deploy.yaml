@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-cart-deploy
+  namespace: nimesh-ns
+  labels:
+    app: ey-cart
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ey
+  template:
+    metadata:
+      labels:
+        app: ey
+    spec:
+      containers:
+        - name: ey-cart-container
+          image: muralisocial123/ey-cart:v1.1.0
+          ports:
+            - containerPort: 3000
