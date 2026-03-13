@@ -6,12 +6,12 @@ metadata:
   labels:
     app: fitness-app
 spec:
-  replicas: 5
+  replicas: 8
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+      maxUnavailable: 2
+      maxSurge: 2
   selector:
     matchLabels:
       app: fitness
