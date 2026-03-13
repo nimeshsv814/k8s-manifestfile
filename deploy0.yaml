@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-app-deploy
+  namespace: nimesh-ns
+  labels:
+    app: fitness-app
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: fitness
+  template:
+    metadata:
+      labels:
+        app: fitness
+    spec:
+      containers:
+        - name: fitness-container
+          image: muralisocial123/fitness-app:v1.0.1
+          ports:
+            - containerPort: 3000
