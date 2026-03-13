@@ -38,4 +38,4 @@ spec:
     - port: 3001 # it is service port number we are using to expose the application to internet
       targetPort: 5000
       protocol: TCP
-  type: ClusterIP
+  type: NodePort
