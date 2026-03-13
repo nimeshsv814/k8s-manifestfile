@@ -31,11 +31,11 @@ kind: Service
 metadata:
   name: fitness-app-deploy-svc
   namespace: nimesh-ns
-  spec:
-    selector:
-      app: fitness
-    ports:
-      - port: 3001 # it is service port number we are using to expose the application to internet
-        targetPort: 3000
-        protocol: TCP
-    type: ClusterIP
+spec:
+  selector:
+    app: fitness
+  ports:
+    - port: 3001 # it is service port number we are using to expose the application to internet
+      targetPort: 3000
+      protocol: TCP
+  type: ClusterIP
